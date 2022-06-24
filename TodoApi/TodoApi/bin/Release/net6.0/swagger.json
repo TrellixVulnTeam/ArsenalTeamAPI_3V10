@@ -1,0 +1,204 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TodoApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/TodoItems": {
+      "get": {
+        "tags": [
+          "TodoItems"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TodoItemDTO"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TodoItems"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TodoItemDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TodoItemDTO"
+            }
+          }
+        }
+      }
+    },
+    "/api/TodoItems/{id}": {
+      "get": {
+        "tags": [
+          "TodoItems"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TodoItemDTO"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TodoItems"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TodoItemDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TodoItems"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecast"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TodoItemDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isComplete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "WeatherForecast": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "temperatureC": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "temperatureF": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
