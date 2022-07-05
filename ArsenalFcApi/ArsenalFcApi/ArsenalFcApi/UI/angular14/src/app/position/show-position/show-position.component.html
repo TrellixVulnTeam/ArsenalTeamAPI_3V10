@@ -1,0 +1,14 @@
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Position Id</th>
+            <th>Position Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of PositionList">
+            <td>{{dataItem.PositionId}}</td>
+            <td>{{dataItem.PositionName}}</td>
+        </tr>
+    </tbody>
+</table>

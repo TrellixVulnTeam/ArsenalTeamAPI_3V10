@@ -1,0 +1,81 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="form-group row" style="width: 60%;">
+        <h2>Enter player details</h2>
+        <label class="col-sm-2 col-form-label ">Full Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="PlayerName" placeholder="Full Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label ">Jersey Number</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="PlayerNumber" placeholder="Jersey Number">
+        </div>
+            
+        <!--- consider a dropdown bar -->
+        <label class="col-sm-2 col-form-label ">Position</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="PlayerPosition">
+                <option>--Select position--</option>
+                <option *ngFor="let position of PositionsList">
+                    {{position.PositionName}}
+                </option>    
+            </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label ">Date of Birth</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" [(ngModel)]="DateOfBirth" placeholder="Date of Birth">
+        </div>
+        
+        <label class="col-sm-2 col-form-label ">Nationality</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="PlayerNationality" placeholder="Nationality">
+        </div>
+        
+        
+        <label class="col-sm-2 col-form-label ">Squad</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="PlayerSquad">
+                <option>--Select squad--</option>
+                <option *ngFor="let squad of SquadsList">
+                    {{squad.SquadName}}
+                </option>    
+            </select>
+        </div>
+        
+        
+        <label class="col-sm-2 col-form-label ">Appearances</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="PlayerAppearances" placeholder="Number of Appearances">
+        </div>
+        
+        
+        <label class="col-sm-2 col-form-label ">Goals</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="PlayerGoals" placeholder="Goals">
+        </div>
+        
+        <label class="col-sm-2 col-form-label ">Assists</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="PlayerAssists" placeholder="Assists">
+        </div>
+        
+        
+        <label class="col-sm-2 col-form-label ">Clean Sheets</label>  
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="PlayerCleanSheets" placeholder="Clean Sheets">
+        </div>
+
+    </div>
+    <div class="ml-3 bd-highlight" style="width: 40%;">
+        <img [src]=PhotoFilePath height="250px;" width="200px;">
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+    </div>
+</div>
+
+
+<div>
+    <button (click)="addPlayer()" *ngIf="player.PlayerId==0" class="btn btn-primary">Add</button>
+    <button (click)="updatePlayer()" *ngIf="player.PlayerId!==0" class="btn btn-primary">Update</button>
+</div>
+<!-- make sure you add other parameters!! -->
